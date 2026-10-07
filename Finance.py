@@ -49,7 +49,7 @@ class LoginWindow:
         # --- Logo & Title Section ---
         # Load the logo image
         logo_image = Image.open("SafeSpend_Logo.png")  # Make sure this matches the actual file name
-        logo_image = logo_image.resize((120, 120), Image.ANTIALIAS)  # Resize as needed
+        logo_image = logo_image.resize((120, 120), Image.Resampling.LANCZOS)  # Resize as needed
         logo_photo = ImageTk.PhotoImage(logo_image)
 
         # Create a container frame for branding
@@ -558,6 +558,7 @@ class FinanceApp:
         if messagebox.askyesno("Confirm Logout", "Are you sure you want to log out?"):
             if self.logout_callback:
                 self.logout_callback()
+                exit()
 
 
 
